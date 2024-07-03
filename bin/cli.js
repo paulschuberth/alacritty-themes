@@ -7,7 +7,7 @@ const prompts = require('prompts');
 const {
   createBackup,
   helpMessage,
-  // existingTheme,
+  existingTheme,
   themesFolder,
 } = require('../src/helpers');
 
@@ -22,9 +22,9 @@ function main() {
   // createBackup();
   const command = process.argv[2];
 
-  // if (existingTheme(command, themesFolderPath)) {
-  // return applyTheme(command, themesFolderPath);
-  // }
+  if (existingTheme(command, themesFolderPath)) {
+    return applyTheme(command, themesFolderPath);
+  }
 
   if (['--directory', '-d'].includes(command)) {
     if (process.argv[3] === undefined) {

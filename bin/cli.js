@@ -66,12 +66,12 @@ function main() {
           value: t,
         };
       }),
-      // onState: (state) => {
-      // state.value && applyTheme(state.value, themesFolderPath, true); // set preview true
-      // },
-      // onCancel: (state) => {
+      onState: (state) => {
+      state.value && applyTheme(state.value, themesFolderPath, true); // set preview true
+      },
+      onCancel: (state) => {
       // revert to backup
-      // },
+      },
     });
 
     try {

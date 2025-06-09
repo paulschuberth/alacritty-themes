@@ -84,7 +84,13 @@ function updateThemeWithFile(themePath, themesPath, tomlPath, preview = false) {
   }
 
   if (currentThemeIndex === undefined) {
-    parsedAlacrittyConfig.general.import = [themePath];
+    if (parsedAlacrittyConfig.general === undefined) {
+        parsedAlacrittyConfig.general = {};
+    }
+    if (parsedAlacrittyConfig.general.import === undefined) {
+      parsedAlacrittyConfig.general.import = [];
+    }
+    parsedAlacrittyConfig.general.import.push(themePath);
   } else {
     parsedAlacrittyConfig.general.import[currentThemeIndex] = themePath;
   }
